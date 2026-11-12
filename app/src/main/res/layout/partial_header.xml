@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dp">
+
+    <LinearLayout
+        android:id="@+id/header_normal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/ripple_borderless"
+            android:contentDescription="Back"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/tx_text" />
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/tx_text"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btn_header_search"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/ripple_borderless"
+            android:contentDescription="Search"
+            android:src="@drawable/ic_search"
+            android:tint="@color/tx_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/header_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/btn_search_close"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/ripple_borderless"
+            android:contentDescription="Close search"
+            android:src="@drawable/ic_close"
+            android:tint="@color/tx_text" />
+
+        <EditText
+            android:id="@+id/header_search_input"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_search"
+            android:hint="Search…"
+            android:imeOptions="actionSearch|flagNoExtractUi"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:textColor="@color/tx_text"
+            android:textColorHint="@color/tx_text_2"
+            android:textSize="15sp" />
+    </LinearLayout>
+</FrameLayout>

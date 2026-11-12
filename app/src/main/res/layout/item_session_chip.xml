@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="38dp"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/bg_term_chip"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="12dp"
+    android:paddingEnd="4dp">
+
+    <View
+        android:id="@+id/chip_dot"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:background="@drawable/dot_blue" />
+
+    <TextView
+        android:id="@+id/chip_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ellipsize="end"
+        android:maxEms="10"
+        android:maxLines="1"
+        android:textColor="@color/term_chip_text"
+        android:textSize="14sp" />
+
+    <ImageButton
+        android:id="@+id/chip_close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ripple_borderless"
+        android:contentDescription="Close session"
+        android:padding="8dp"
+        android:src="@drawable/ic_close"
+        android:tint="@color/tt_text_2" />
+</LinearLayout>
