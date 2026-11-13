@@ -176,7 +176,7 @@ public class CommandTemplatesActivity extends RedesignActivity {
         desc.setSingleLine(true);
         EditText cmd = new EditText(this);
         cmd.setHint("Command (use <value> for inputs)");
-        cmd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTS);
+        cmd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         Spinner category = new Spinner(this);
         category.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,
             new String[]{TemplateStore.CAT_DEVELOPMENT, TemplateStore.CAT_SYSTEM, TemplateStore.CAT_NETWORK}));
