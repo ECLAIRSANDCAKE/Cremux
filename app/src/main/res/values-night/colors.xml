@@ -6,7 +6,8 @@
     <color name="tx_stroke">#2E2F35</color>
     <color name="tx_text">#FFFFFF</color>
     <color name="tx_text_2">#9B9CA3</color>
-    <color name="tx_accent">#F2C879</color>
+    <color name="tx_accent">#FFFFFF</color>
+    <color name="tx_on_accent">#000000</color>
     <color name="tx_green">#34C759</color>
     <color name="tx_orange">#FF9F0A</color>
     <color name="tx_red">#FF453A</color>

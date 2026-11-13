@@ -36,7 +36,8 @@
                         android:layout_width="34dp"
                         android:layout_height="34dp"
                         android:contentDescription="@null"
-                        android:src="@drawable/ic_brand" />
+                        android:src="@drawable/ic_brand"
+                        android:tint="?attr/tx_text" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -138,7 +139,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="22dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -157,7 +158,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/ripple_borderless"
                     android:padding="6dp"
-                    android:text="See all  →"
+                    android:text="See all"
                     android:textColor="?attr/tx_text_2"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -292,127 +293,159 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Pinned templates -->
+            <!-- One card: templates, recent sessions, saved sessions -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Command Templates"
-                    android:textColor="?attr/tx_text"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/pinned_see_all"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ripple_borderless"
-                    android:padding="6dp"
-                    android:text="See all  →"
-                    android:textColor="?attr/tx_text_2"
-                    android:textSize="13sp" />
-            </LinearLayout>
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:scrollbars="none">
+                android:layout_marginTop="22dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:paddingBottom="6dp">
 
                 <LinearLayout
-                    android:id="@+id/pinned_row"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" />
-            </HorizontalScrollView>
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="2dp">
 
-            <!-- Recent sessions -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Command Templates"
+                        android:textColor="?attr/tx_text"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/pinned_see_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ripple_borderless"
+                        android:padding="8dp"
+                        android:text="See all"
+                        android:textColor="?attr/tx_text_2"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Recent Sessions"
-                    android:textColor="?attr/tx_text"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:clipToPadding="false"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:scrollbars="none">
 
-                <TextView
-                    android:id="@+id/sessions_see_all"
-                    android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/pinned_row"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="6dp"
+                    android:background="?attr/tx_stroke" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ripple_borderless"
-                    android:padding="6dp"
-                    android:text="See all  →"
-                    android:textColor="?attr/tx_text_2"
-                    android:textSize="13sp" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="2dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Recent Sessions"
+                        android:textColor="?attr/tx_text"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/sessions_see_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ripple_borderless"
+                        android:padding="8dp"
+                        android:text="See all"
+                        android:textColor="?attr/tx_text_2"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/recent_sessions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="6dp"
+                    android:background="?attr/tx_stroke" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="2dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Saved Sessions"
+                        android:textColor="?attr/tx_text"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/saved_save"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/ripple_borderless"
+                        android:contentDescription="Save current session"
+                        android:src="@drawable/ic_add"
+                        android:tint="?attr/tx_text" />
+                    <TextView
+                        android:id="@+id/saved_see_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ripple_borderless"
+                        android:padding="8dp"
+                        android:text="See all"
+                        android:textColor="?attr/tx_text_2"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/saved_sessions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/recent_sessions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Saved Sessions"
-                    android:textColor="?attr/tx_text"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/saved_save"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ripple_borderless"
-                    android:padding="6dp"
-                    android:text="Save  +"
-                    android:textColor="?attr/tx_text_2"
-                    android:textSize="13sp" />
-                <TextView
-                    android:id="@+id/saved_see_all"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ripple_borderless"
-                    android:padding="6dp"
-                    android:text="See all  →"
-                    android:textColor="?attr/tx_text_2"
-                    android:textSize="13sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/saved_sessions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="22dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 

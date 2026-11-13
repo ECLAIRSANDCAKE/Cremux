@@ -29,5 +29,5 @@ Needs a classic PAT with `repo` scope. `git` is auto-installed with `pkg install
   Stored in ~/.cremux/sessions (output .txt + .json with folder). Restore opens a new session in the saved folder.
 
 ## Branding
-Crémux "C" + prompt icon (adaptive + legacy PNGs), cream-gold accent (dark text on accent), Home header uses ic_brand.
+Crémux "C" + prompt icon (black/white), monochrome accent (white on dark, black on light), grouped Home lists.
 Package name, env vars and commands (termux-*, pkg, TERMUX_*) unchanged.

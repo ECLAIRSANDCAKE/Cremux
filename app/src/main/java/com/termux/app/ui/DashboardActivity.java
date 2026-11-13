@@ -141,20 +141,20 @@ public class DashboardActivity extends RedesignActivity {
         container.removeAllViews();
         LayoutInflater inflater = LayoutInflater.from(this);
         if (sessions.isEmpty()) {
-            View row = inflater.inflate(R.layout.item_recent_session, container, false);
-            ((TextView) row.findViewById(R.id.rs_name)).setText("No sessions yet — start one");
+            View row = inflater.inflate(R.layout.item_list_row, container, false);
+            ((TextView) row.findViewById(R.id.rs_name)).setText("No sessions yet. Tap to start one");
             ((TextView) row.findViewById(R.id.rs_time)).setText("");
             row.setOnClickListener(v -> TerminalCommands.openTerminal(this));
-            container.addView(row);
+            addRow(container, row);
             return;
         }
         for (int i = 0; i < Math.min(3, sessions.size()); i++) {
             TerminalSession s = sessions.get(i);
-            View row = inflater.inflate(R.layout.item_recent_session, container, false);
+            View row = inflater.inflate(R.layout.item_list_row, container, false);
             ((TextView) row.findViewById(R.id.rs_name)).setText(displayName(s, indexOf(s)));
             ((TextView) row.findViewById(R.id.rs_time)).setText(timeAgo(s));
             row.setOnClickListener(v -> TerminalCommands.openSession(this, s.mHandle));
-            container.addView(row);
+            addRow(container, row);
         }
     }
 
@@ -260,21 +260,49 @@ public class DashboardActivity extends RedesignActivity {
         all.addAll(TemplateStore.builtIns());
         for (int i = 0; i < Math.min(8, all.size()); i++) {
             final TemplateStore.Template t = all.get(i);
-            TextView chip = new TextView(this);
-            chip.setText(t.name);
-            chip.setTextSize(13);
-            chip.setTextColor(UiColors.attr(this, R.attr.tx_text));
-            chip.setBackgroundResource(R.drawable.bg_chip);
-            chip.setGravity(android.view.Gravity.CENTER);
-            chip.setPadding(dp(16), 0, dp(16), 0);
-            chip.setClickable(true);
-            android.widget.LinearLayout.LayoutParams lp =
-                new android.widget.LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, dp(38));
-            lp.setMarginEnd(dp(8));
-            chip.setOnClickListener(v -> startActivity(new Intent(this, CommandTemplatesActivity.class)
+            android.widget.LinearLayout card = new android.widget.LinearLayout(this);
+            card.setOrientation(android.widget.LinearLayout.VERTICAL);
+            card.setGravity(android.view.Gravity.BOTTOM);
+            card.setPadding(dp(12), dp(12), dp(12), dp(12));
+            card.setBackgroundResource(R.drawable.bg_btn_tonal);
+            card.setClickable(true);
+            card.setFocusable(true);
+
+            android.widget.ImageView icon = new android.widget.ImageView(this);
+            icon.setImageResource(Icons.byName(t.icon));
+            icon.setColorFilter(UiColors.attr(this, R.attr.tx_text));
+            card.addView(icon, new android.widget.LinearLayout.LayoutParams(dp(24), dp(24)));
+
+            TextView name = new TextView(this);
+            name.setText(t.name);
+            name.setTextSize(13);
+            name.setMaxLines(1);
+            name.setEllipsize(android.text.TextUtils.TruncateAt.END);
+            name.setTextColor(UiColors.attr(this, R.attr.tx_text));
+            android.widget.LinearLayout.LayoutParams nlp = new android.widget.LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            nlp.topMargin = dp(10);
+            card.addView(name, nlp);
+
+            card.setOnClickListener(v -> startActivity(new Intent(this, CommandTemplatesActivity.class)
                 .putExtra(CommandTemplatesActivity.EXTRA_OPEN_TEMPLATE, t.name)));
-            row.addView(chip, lp);
+            android.widget.LinearLayout.LayoutParams lp = new android.widget.LinearLayout.LayoutParams(dp(104), dp(84));
+            lp.setMarginEnd(dp(8));
+            row.addView(card, lp);
         }
+    }
+
+    /** Add a row to a grouped list card, with a hairline divider above all but the first row. */
+    private void addRow(android.widget.LinearLayout container, View row) {
+        if (container.getChildCount() > 0) {
+            View divider = new View(this);
+            divider.setBackgroundColor(UiColors.attr(this, R.attr.tx_stroke));
+            android.widget.LinearLayout.LayoutParams dlp =
+                new android.widget.LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+            dlp.setMarginStart(dp(50));
+            container.addView(divider, dlp);
+        }
+        container.addView(row);
     }
 
     private void refreshSaved() {
@@ -283,21 +311,22 @@ public class DashboardActivity extends RedesignActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
         List<SessionArchive.Saved> saved = SessionArchive.list();
         if (saved.isEmpty()) {
-            View row = inflater.inflate(R.layout.item_recent_session, container, false);
-            ((TextView) row.findViewById(R.id.rs_name)).setText("Nothing saved — tap Save + to keep a session");
+            View row = inflater.inflate(R.layout.item_list_row, container, false);
+            ((TextView) row.findViewById(R.id.rs_name)).setText("No saved sessions. Tap to save one");
             ((TextView) row.findViewById(R.id.rs_time)).setText("");
             row.setOnClickListener(v -> saveSessionFlow());
-            container.addView(row);
+            addRow(container, row);
             return;
         }
         for (int i = 0; i < Math.min(3, saved.size()); i++) {
             final SessionArchive.Saved item = saved.get(i);
-            View row = inflater.inflate(R.layout.item_recent_session, container, false);
+            View row = inflater.inflate(R.layout.item_list_row, container, false);
+            ((android.widget.ImageView) row.findViewById(R.id.rs_icon)).setImageResource(R.drawable.ic_file);
             ((TextView) row.findViewById(R.id.rs_name)).setText(item.name);
             ((TextView) row.findViewById(R.id.rs_time)).setText(DateUtils.getRelativeTimeSpanString(item.time,
                 System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS, DateUtils.FORMAT_ABBREV_RELATIVE));
             row.setOnClickListener(v -> showSavedOptions(item));
-            container.addView(row);
+            addRow(container, row);
         }
     }
 
