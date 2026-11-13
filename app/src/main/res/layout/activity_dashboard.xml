@@ -36,8 +36,7 @@
                         android:layout_width="34dp"
                         android:layout_height="34dp"
                         android:contentDescription="@null"
-                        android:src="@drawable/ic_prompt"
-                        android:tint="?attr/tx_text" />
+                        android:src="@drawable/ic_brand" />
                 </LinearLayout>
 
                 <LinearLayout

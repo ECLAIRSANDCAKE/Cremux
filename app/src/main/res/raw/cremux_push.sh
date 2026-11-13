@@ -29,6 +29,7 @@ else
   echo "==> Copying your files over the repo"
   cp -a "$SRC"/. "$WORK"/
 fi
+[ -f gradlew ] && chmod +x gradlew || true
 git config user.name "$GNAME"
 git config user.email "$GMAIL"
 echo "==> Staging changes"

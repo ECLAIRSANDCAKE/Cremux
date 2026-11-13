@@ -27,3 +27,7 @@ Needs a classic PAT with `repo` scope. `git` is auto-installed with `pkg install
 - Home: Command Templates chips, Saved Sessions, System card (storage/RAM/packages), GitHub Sync card.
 - Save session: terminal ⋮ menu > Save session, or Home > Sessions Manage (long-press) / Saved Sessions > Save +.
   Stored in ~/.cremux/sessions (output .txt + .json with folder). Restore opens a new session in the saved folder.
+
+## Branding
+Crémux "C" + prompt icon (adaptive + legacy PNGs), cream-gold accent (dark text on accent), Home header uses ic_brand.
+Package name, env vars and commands (termux-*, pkg, TERMUX_*) unchanged.

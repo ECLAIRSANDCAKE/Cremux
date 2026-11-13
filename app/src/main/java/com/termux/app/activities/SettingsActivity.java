@@ -143,7 +143,7 @@ public class SettingsActivity extends RedesignActivity {
         });
 
         Group advanced = addGroup("Advanced");
-        addRow(advanced, R.drawable.ic_tune, "All Termux settings", null,
+        addRow(advanced, R.drawable.ic_tune, "All settings", null,
             v -> startActivity(new Intent(this, SettingsActivity.class).putExtra(EXTRA_ADVANCED, true)));
     }
 
