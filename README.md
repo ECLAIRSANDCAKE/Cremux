@@ -17,19 +17,21 @@
 
 ## Screenshots
 <p align="center">
-  <img src="art/screens/home.png" width="24%" alt="Home">
-  <img src="art/screens/terminal.png" width="24%" alt="Terminal">
-  <img src="art/screens/templates.png" width="24%" alt="Command Templates">
-  <img src="art/screens/packages.png" width="24%" alt="Package Manager">
+  <img src="art/screens/home.png" width="32%" alt="Home">
+  <img src="art/screens/terminal.png" width="32%" alt="Terminal">
+  <img src="art/screens/templates.png" width="32%" alt="Command Templates">
 </p>
 <p align="center">
-  <img src="art/screens/files.png" width="24%" alt="File Manager">
-  <img src="art/screens/sync.png" width="24%" alt="GitHub Sync">
-  <img src="art/screens/settings.png" width="24%" alt="Settings">
+  <img src="art/screens/files.png" width="32%" alt="File Manager">
+  <img src="art/screens/sync.png" width="32%" alt="GitHub Sync">
+  <img src="art/screens/settings.png" width="32%" alt="Settings">
 </p>
 
 ## Build
 Push to `main` and GitHub Actions builds the APKs (Actions tab → latest run → Artifacts: `Cremux-arm64-v8a` for most phones, `Cremux-armeabi-v7a` for older 32-bit ones).
+
+### Releases
+Create a release with a tag like `v0.1.0` (Releases → Create a new release) and the build attaches `Cremux-arm64-v8a.apk` and `Cremux-armeabi-v7a.apk` to it automatically. Debug builds, so mark them as pre-release.
 
 ## Notes
 - Application id stays `com.termux`, so Crémux cannot be installed next to the official Termux, and Termux commands and plugins keep working.
