@@ -129,7 +129,7 @@ public class SettingsActivity extends RedesignActivity {
             Toast.makeText(this, "Version copied", Toast.LENGTH_SHORT).show();
         });
         versionRow.findViewById(R.id.row_chevron).setVisibility(View.GONE);
-        addRow(about, R.drawable.ic_info, "About Termux", null, v -> showAbout());
+        addRow(about, R.drawable.ic_info, "About Crémux", null, v -> showAbout());
         addRow(about, R.drawable.ic_globe, "Help", null, v -> startActivity(new Intent(this, HelpActivity.class)));
 
         TermuxAppSharedPreferences prefs = TermuxAppSharedPreferences.build(this, false);

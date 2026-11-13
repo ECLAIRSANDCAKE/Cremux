@@ -15,6 +15,19 @@
 - **Save session**: keep a session's output and folder, restore it later.
 - **Themes**: system, light, dark and AMOLED black.
 
+## Screenshots
+<p align="center">
+  <img src="art/screens/home.png" width="24%" alt="Home">
+  <img src="art/screens/terminal.png" width="24%" alt="Terminal">
+  <img src="art/screens/templates.png" width="24%" alt="Command Templates">
+  <img src="art/screens/packages.png" width="24%" alt="Package Manager">
+</p>
+<p align="center">
+  <img src="art/screens/files.png" width="24%" alt="File Manager">
+  <img src="art/screens/sync.png" width="24%" alt="GitHub Sync">
+  <img src="art/screens/settings.png" width="24%" alt="Settings">
+</p>
+
 ## Build
 Push to `main` and GitHub Actions builds the APKs (Actions tab → latest run → Artifacts: `Cremux-arm64-v8a` for most phones, `Cremux-armeabi-v7a` for older 32-bit ones).
 
