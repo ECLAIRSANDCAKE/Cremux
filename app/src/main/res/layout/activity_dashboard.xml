@@ -293,6 +293,46 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <!-- Pinned templates -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Command Templates"
+                    android:textColor="?attr/tx_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/pinned_see_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_borderless"
+                    android:padding="6dp"
+                    android:text="See all  →"
+                    android:textColor="?attr/tx_text_2"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/pinned_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
             <!-- Recent sessions -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -327,6 +367,113 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Saved Sessions"
+                    android:textColor="?attr/tx_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/saved_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_borderless"
+                    android:padding="6dp"
+                    android:text="Save  +"
+                    android:textColor="?attr/tx_text_2"
+                    android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/saved_see_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_borderless"
+                    android:padding="6dp"
+                    android:text="See all  →"
+                    android:textColor="?attr/tx_text_2"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/saved_sessions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="System"
+                    android:textColor="?attr/tx_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="16dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="horizontal">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Storage" android:textColor="?attr/tx_text" android:textSize="13sp" />
+                    <TextView android:id="@+id/stat_storage_val" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="?attr/tx_text_2" android:textSize="12sp" />
+                </LinearLayout>
+                <ProgressBar android:id="@+id/stat_storage_bar" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="6dp" android:max="100" android:progressTint="?attr/tx_accent" android:progressBackgroundTint="?attr/tx_stroke" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="horizontal">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Memory" android:textColor="?attr/tx_text" android:textSize="13sp" />
+                    <TextView android:id="@+id/stat_ram_val" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="?attr/tx_text_2" android:textSize="12sp" />
+                </LinearLayout>
+                <ProgressBar android:id="@+id/stat_ram_bar" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="6dp" android:max="100" android:progressTint="?attr/tx_accent" android:progressBackgroundTint="?attr/tx_stroke" />
+                <TextView android:id="@+id/stat_extra" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:textColor="?attr/tx_text_2" android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sync_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_card"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:contentDescription="@null" android:src="@drawable/ic_sync" android:tint="?attr/tx_text" />
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GitHub Sync" android:textColor="?attr/tx_text" android:textSize="15sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/sync_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:textColor="?attr/tx_text_2" android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:contentDescription="@null" android:src="@drawable/ic_chevron_right" android:tint="?attr/tx_text_2" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

@@ -93,6 +93,9 @@ public class TermuxTerminalExtraKeys extends TerminalExtraKeys {
                 drawerLayout.closeDrawer(Gravity.LEFT);
             else
                 drawerLayout.openDrawer(Gravity.LEFT);
+        } else if ("TEMPLATES".equals(key)) {
+            android.app.Activity activity = mTermuxTerminalViewClient.getActivity();
+            activity.startActivity(new android.content.Intent(activity, com.termux.app.ui.CommandTemplatesActivity.class));
         } else if ("PASTE".equals(key)) {
             if(mTermuxTerminalSessionActivityClient != null)
                 mTermuxTerminalSessionActivityClient.onPasteTextFromClipboard(null);

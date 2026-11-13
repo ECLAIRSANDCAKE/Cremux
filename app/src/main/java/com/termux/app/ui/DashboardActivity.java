@@ -67,6 +67,11 @@ public class DashboardActivity extends RedesignActivity {
         findViewById(R.id.quick_see_all).setOnClickListener(v -> startActivity(new Intent(this, CommandTemplatesActivity.class)));
         findViewById(R.id.sessions_see_all).setOnClickListener(v -> showSessionsDialog());
 
+        findViewById(R.id.pinned_see_all).setOnClickListener(v -> startActivity(new Intent(this, CommandTemplatesActivity.class)));
+        findViewById(R.id.saved_save).setOnClickListener(v -> saveSessionFlow());
+        findViewById(R.id.saved_see_all).setOnClickListener(v -> showSavedDialog());
+        findViewById(R.id.sync_card).setOnClickListener(v -> startActivity(new Intent(this, GitHubSyncActivity.class)));
+
         findViewById(R.id.nav_terminal).setOnClickListener(v -> TerminalCommands.openTerminal(this));
         findViewById(R.id.nav_sync).setOnClickListener(v -> startActivity(new Intent(this, GitHubSyncActivity.class)));
         findViewById(R.id.nav_files).setOnClickListener(v -> startActivity(new Intent(this, FileManagerActivity.class)));
@@ -115,6 +120,7 @@ public class DashboardActivity extends RedesignActivity {
     }
 
     private void refresh() {
+        refreshExtras();
         boolean installed = new File(TermuxConstants.TERMUX_PREFIX_DIR_PATH + "/bin/login").exists();
         List<TerminalSession> sessions = sessions();
 
@@ -210,7 +216,7 @@ public class DashboardActivity extends RedesignActivity {
     }
 
     private void showSessionOptions(TerminalSession s) {
-        String[] items = {"Open", "Rename", s.isRunning() ? "Close session" : "Remove session"};
+        String[] items = {"Open", "Rename", "Save session", s.isRunning() ? "Close session" : "Remove session"};
         UiPrefs.show(this, new AlertDialog.Builder(this).setTitle(displayName(s, indexOf(s)))
             .setItems(items, (d, which) -> {
                 if (which == 0) {
@@ -228,11 +234,177 @@ public class DashboardActivity extends RedesignActivity {
                             refresh();
                         })
                         .setNegativeButton(android.R.string.cancel, null));
+                } else if (which == 2) {
+                    SessionSaver.promptAndSave(this, s);
                 } else {
                     if (s.isRunning()) s.finishIfRunning();
                     else if (mService != null) mService.removeTermuxSession(s);
                     refresh();
                 }
             }));
+    }
+
+    // ---- Pinned templates, saved sessions, system card, sync card ----
+
+    private void refreshExtras() {
+        refreshPinned();
+        refreshSaved();
+        refreshSystem();
+        refreshSync();
+    }
+
+    private void refreshPinned() {
+        android.widget.LinearLayout row = findViewById(R.id.pinned_row);
+        row.removeAllViews();
+        List<TemplateStore.Template> all = new ArrayList<>(TemplateStore.custom(this));
+        all.addAll(TemplateStore.builtIns());
+        for (int i = 0; i < Math.min(8, all.size()); i++) {
+            final TemplateStore.Template t = all.get(i);
+            TextView chip = new TextView(this);
+            chip.setText(t.name);
+            chip.setTextSize(13);
+            chip.setTextColor(UiColors.attr(this, R.attr.tx_text));
+            chip.setBackgroundResource(R.drawable.bg_chip);
+            chip.setGravity(android.view.Gravity.CENTER);
+            chip.setPadding(dp(16), 0, dp(16), 0);
+            chip.setClickable(true);
+            android.widget.LinearLayout.LayoutParams lp =
+                new android.widget.LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, dp(38));
+            lp.setMarginEnd(dp(8));
+            chip.setOnClickListener(v -> startActivity(new Intent(this, CommandTemplatesActivity.class)
+                .putExtra(CommandTemplatesActivity.EXTRA_OPEN_TEMPLATE, t.name)));
+            row.addView(chip, lp);
+        }
+    }
+
+    private void refreshSaved() {
+        android.widget.LinearLayout container = findViewById(R.id.saved_sessions);
+        container.removeAllViews();
+        LayoutInflater inflater = LayoutInflater.from(this);
+        List<SessionArchive.Saved> saved = SessionArchive.list();
+        if (saved.isEmpty()) {
+            View row = inflater.inflate(R.layout.item_recent_session, container, false);
+            ((TextView) row.findViewById(R.id.rs_name)).setText("Nothing saved — tap Save + to keep a session");
+            ((TextView) row.findViewById(R.id.rs_time)).setText("");
+            row.setOnClickListener(v -> saveSessionFlow());
+            container.addView(row);
+            return;
+        }
+        for (int i = 0; i < Math.min(3, saved.size()); i++) {
+            final SessionArchive.Saved item = saved.get(i);
+            View row = inflater.inflate(R.layout.item_recent_session, container, false);
+            ((TextView) row.findViewById(R.id.rs_name)).setText(item.name);
+            ((TextView) row.findViewById(R.id.rs_time)).setText(DateUtils.getRelativeTimeSpanString(item.time,
+                System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS, DateUtils.FORMAT_ABBREV_RELATIVE));
+            row.setOnClickListener(v -> showSavedOptions(item));
+            container.addView(row);
+        }
+    }
+
+    private void saveSessionFlow() {
+        final List<TerminalSession> sessions = sessions();
+        if (sessions.isEmpty()) {
+            android.widget.Toast.makeText(this, "No running session. Open Terminal first.", android.widget.Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (sessions.size() == 1) {
+            SessionSaver.promptAndSave(this, sessions.get(0));
+            return;
+        }
+        String[] labels = new String[sessions.size()];
+        for (int i = 0; i < labels.length; i++) labels[i] = displayName(sessions.get(i), indexOf(sessions.get(i)));
+        UiPrefs.show(this, new AlertDialog.Builder(this).setTitle("Save which session?")
+            .setItems(labels, (d, which) -> SessionSaver.promptAndSave(this, sessions.get(which)))
+            .setNegativeButton(android.R.string.cancel, null));
+    }
+
+    private void showSavedDialog() {
+        final List<SessionArchive.Saved> saved = SessionArchive.list();
+        if (saved.isEmpty()) {
+            UiPrefs.show(this, new AlertDialog.Builder(this).setTitle("Saved sessions")
+                .setMessage("Nothing saved yet. Use Save + here, or \"Save session\" in the terminal menu.")
+                .setPositiveButton(android.R.string.ok, null));
+            return;
+        }
+        String[] labels = new String[saved.size()];
+        for (int i = 0; i < labels.length; i++) labels[i] = saved.get(i).name + "  ·  " + saved.get(i).cwd;
+        UiPrefs.show(this, new AlertDialog.Builder(this).setTitle("Saved sessions")
+            .setItems(labels, (d, which) -> showSavedOptions(saved.get(which)))
+            .setNegativeButton(android.R.string.cancel, null));
+    }
+
+    private void showSavedOptions(final SessionArchive.Saved item) {
+        String[] items = {"Restore in new session", "View output", "Delete"};
+        UiPrefs.show(this, new AlertDialog.Builder(this).setTitle(item.name).setMessage(item.cwd)
+            .setItems(items, (d, which) -> {
+                if (which == 0) {
+                    TerminalCommands.runInNewSession(this, "cd " + TerminalCommands.quote(item.cwd)
+                        + " && clear && tail -n 60 " + TerminalCommands.quote(item.transcript.getPath()));
+                } else if (which == 1) {
+                    TerminalCommands.run(this, "less -R " + TerminalCommands.quote(item.transcript.getPath()));
+                } else {
+                    UiPrefs.show(this, new AlertDialog.Builder(this).setTitle("Delete \"" + item.name + "\"?")
+                        .setPositiveButton("Delete", (dd, ww) -> {
+                            SessionArchive.delete(item);
+                            refreshSaved();
+                        })
+                        .setNegativeButton(android.R.string.cancel, null));
+                }
+            }));
+    }
+
+    private void refreshSystem() {
+        try {
+            android.os.StatFs fs = new android.os.StatFs(TermuxConstants.TERMUX_FILES_DIR_PATH);
+            long total = fs.getTotalBytes();
+            long free = fs.getAvailableBytes();
+            ((TextView) findViewById(R.id.stat_storage_val)).setText(fmt(total - free) + " used of " + fmt(total));
+            ((android.widget.ProgressBar) findViewById(R.id.stat_storage_bar)).setProgress((int) (100 * (total - free) / Math.max(1, total)));
+        } catch (Exception ignored) { }
+        try {
+            android.app.ActivityManager am = (android.app.ActivityManager) getSystemService(ACTIVITY_SERVICE);
+            android.app.ActivityManager.MemoryInfo mi = new android.app.ActivityManager.MemoryInfo();
+            am.getMemoryInfo(mi);
+            long usedMem = mi.totalMem - mi.availMem;
+            ((TextView) findViewById(R.id.stat_ram_val)).setText(fmt(usedMem) + " used of " + fmt(mi.totalMem));
+            ((android.widget.ProgressBar) findViewById(R.id.stat_ram_bar)).setProgress((int) (100 * usedMem / Math.max(1, mi.totalMem)));
+        } catch (Exception ignored) { }
+
+        final TextView extra = findViewById(R.id.stat_extra);
+        final int running = sessions().size();
+        new Thread(() -> {
+            int pkgs = 0;
+            java.io.File status = new java.io.File(TermuxConstants.TERMUX_PREFIX_DIR_PATH + "/var/lib/dpkg/status");
+            if (status.exists()) {
+                try (java.io.BufferedReader r = new java.io.BufferedReader(new java.io.FileReader(status))) {
+                    String line;
+                    while ((line = r.readLine()) != null) if (line.startsWith("Package: ")) pkgs++;
+                } catch (Exception ignored) { }
+            }
+            final String text = pkgs + " packages installed  ·  " + running + (running == 1 ? " session running" : " sessions running");
+            runOnUiThread(() -> extra.setText(text));
+        }).start();
+    }
+
+    private static String fmt(long bytes) {
+        double gb = bytes / 1073741824.0;
+        if (gb >= 1) return String.format(java.util.Locale.US, "%.1f GB", gb);
+        return String.format(java.util.Locale.US, "%d MB", bytes / 1048576);
+    }
+
+    private void refreshSync() {
+        TextView sub = findViewById(R.id.sync_subtitle);
+        if (!GitHubCredentials.hasCredentials(this)) {
+            sub.setText("Connect GitHub and push a zip or folder in one tap");
+            return;
+        }
+        String repo = GitHubCredentials.getLastRepo(this);
+        long t = GitHubCredentials.getLastTime(this);
+        if (repo == null || t == 0) {
+            sub.setText("Signed in as " + GitHubCredentials.getUser(this) + " · ready to push");
+        } else {
+            sub.setText("Last push: " + repo + " · " + DateUtils.getRelativeTimeSpanString(t,
+                System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS, DateUtils.FORMAT_ABBREV_RELATIVE));
+        }
     }
 }

@@ -38,6 +38,8 @@ public class CommandTemplatesActivity extends RedesignActivity {
     private RecyclerView.Adapter<Holder> mAdapter;
     private TextView mChipAll, mChipDev, mChipSys, mChipNet;
 
+    public static final String EXTRA_OPEN_TEMPLATE = "open_template";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +72,18 @@ public class CommandTemplatesActivity extends RedesignActivity {
 
         findViewById(R.id.btn_new_template).setOnClickListener(v -> showNewTemplateDialog());
         selectCategory(null);
+
+        String open = getIntent().getStringExtra(EXTRA_OPEN_TEMPLATE);
+        if (open != null) {
+            List<TemplateStore.Template> all = new ArrayList<>(TemplateStore.builtIns());
+            all.addAll(TemplateStore.custom(this));
+            for (TemplateStore.Template t : all) {
+                if (t.name.equals(open)) {
+                    onTemplateClicked(t);
+                    break;
+                }
+            }
+        }
     }
 
     private void selectCategory(String category) {

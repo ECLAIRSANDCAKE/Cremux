@@ -21,3 +21,9 @@ The terminal screen always uses the dark `tt_*` tokens.
 Pick a zip/folder, pick or create a repo, push with real `git` inside the Termux environment.
 Token is stored AES-GCM encrypted via Android Keystore (API 23+); sent to git via env (GIT_CONFIG_*), never written to .git/config or logged.
 Needs a classic PAT with `repo` scope. `git` is auto-installed with `pkg install -y git` if missing.
+
+## v4
+- Terminal key row: new CMD key (7th slot of row 1) opens Command Templates.
+- Home: Command Templates chips, Saved Sessions, System card (storage/RAM/packages), GitHub Sync card.
+- Save session: terminal ⋮ menu > Save session, or Home > Sessions Manage (long-press) / Saved Sessions > Save +.
+  Stored in ~/.cremux/sessions (output .txt + .json with folder). Restore opens a new session in the saved folder.

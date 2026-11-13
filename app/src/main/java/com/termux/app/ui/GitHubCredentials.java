@@ -89,9 +89,22 @@ public final class GitHubCredentials {
         }
     }
 
+    public static void setLastPush(Context c, String repo) {
+        prefs(c).edit().putString("last_repo", repo).putLong("last_time", System.currentTimeMillis()).apply();
+    }
+
+    @Nullable
+    public static String getLastRepo(Context c) {
+        return prefs(c).getString("last_repo", null);
+    }
+
+    public static long getLastTime(Context c) {
+        return prefs(c).getLong("last_time", 0);
+    }
+
     public static void clear(Context c) {
         sMemoryToken = null;
-        prefs(c).edit().clear().apply();
+        prefs(c).edit().remove(KEY_USER).remove(KEY_TOKEN).apply();
     }
 
     private static SecretKey key() throws Exception {

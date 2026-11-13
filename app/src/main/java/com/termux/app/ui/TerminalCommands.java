@@ -28,6 +28,15 @@ public final class TerminalCommands {
         context.startActivity(intent);
     }
 
+    /** Open a brand new session and run {@code command} in it. */
+    public static void runInNewSession(@NonNull Context context, @NonNull String command) {
+        Intent intent = new Intent(context, TermuxActivity.class);
+        intent.putExtra(EXTRA_NEW_SESSION, true);
+        intent.putExtra(EXTRA_RUN_COMMAND, command);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
     public static void openTerminal(@NonNull Context context) {
         Intent intent = new Intent(context, TermuxActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

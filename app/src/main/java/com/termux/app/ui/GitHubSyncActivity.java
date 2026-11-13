@@ -411,6 +411,7 @@ public class GitHubSyncActivity extends RedesignActivity {
                 .setNegativeButton("Close", null)
                 .setPositiveButton("Open on GitHub", (d, w) ->
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/" + repo.fullName)))));
+            GitHubCredentials.setLastPush(this, repo.fullName);
             mRepoIsNew = false;
             refreshAll();
         } else {
