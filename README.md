@@ -27,11 +27,12 @@
   <img src="art/screens/settings.png" width="32%" alt="Settings">
 </p>
 
-## Build
-Push to `main` and GitHub Actions builds the APKs (Actions tab → latest run → Artifacts: `Cremux-arm64-v8a` for most phones, `Cremux-armeabi-v7a` for older 32-bit ones).
+## Download
+Get the latest APK from the [Releases](../../releases) page.
+- **`Cremux-arm64-v8a.apk`**: for most phones made in the last several years.
+- **`Cremux-armeabi-v7a.apk`**: for older 32-bit phones.
 
-### Releases
-Create a release with a tag like `v0.1.0` (Releases → Create a new release) and the build attaches `Cremux-arm64-v8a.apk` and `Cremux-armeabi-v7a.apk` to it automatically. Debug builds, so mark them as pre-release.
+These are debug builds. Building from source is covered in [docs/BUILD.md](docs/BUILD.md).
 
 ## Notes
 - Application id stays `com.termux`, so Crémux cannot be installed next to the official Termux, and Termux commands and plugins keep working.
