@@ -14,7 +14,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -99,7 +98,7 @@ public class CommandTemplatesActivity extends RedesignActivity {
         h.name.setText(t.name);
         h.desc.setText(t.description);
         h.icon.setImageResource(Icons.byName(t.icon));
-        h.icon.setColorFilter(ContextCompat.getColor(this, R.color.tx_text));
+        h.icon.setColorFilter(UiColors.attr(this, R.attr.tx_text));
         h.itemView.setOnClickListener(v -> onTemplateClicked(t));
         h.itemView.setOnLongClickListener(v -> {
             if (t.builtIn) return false;

@@ -42,20 +42,56 @@
         <!-- Extra keys colors. -->
         <item name="extraKeysButtonTextColor">@color/white</item>
         <item name="extraKeysButtonActiveTextColor">@color/red_400</item>
-        <item name="extraKeysButtonBackgroundColor">@color/tt_bar</item>
+        <item name="extraKeysButtonBackgroundColor">?attr/tt_key</item>
+        <item name="tt_bg">@color/tt_bg</item>
+        <item name="tt_bar">@color/tt_bar</item>
+        <item name="tt_key">@color/tt_key</item>
+        <item name="tt_surface">@color/tt_surface</item>
+        <item name="tt_stroke">@color/tt_stroke</item>
+        <item name="tt_text">@color/tt_text</item>
+        <item name="tt_text_2">@color/tt_text_2</item>
+        <item name="tt_accent">@color/tt_accent</item>
+        <item name="tt_green">@color/tt_green</item>
+        <item name="tt_red">@color/tt_red</item>
         <item name="extraKeysButtonActiveBackgroundColor">@color/grey_500</item>
     </style>
 
 
     <!-- Redesigned screens (Home, Templates, Packages, Files, Settings). -->
     <style name="Theme.TermuxRedesign" parent="Theme.TermuxApp.DayNight.NoActionBar">
-        <item name="android:windowBackground">@color/tx_bg</item>
-        <item name="android:statusBarColor">@color/tx_bg</item>
-        <item name="android:navigationBarColor">@color/tx_bg</item>
-        <item name="android:textColorPrimary">@color/tx_text</item>
-        <item name="android:textColorSecondary">@color/tx_text_2</item>
-        <item name="colorAccent">@color/tx_accent</item>
+        <item name="tx_bg">@color/tx_bg</item>
+        <item name="tx_surface">@color/tx_surface</item>
+        <item name="tx_surface_2">@color/tx_surface_2</item>
+        <item name="tx_stroke">@color/tx_stroke</item>
+        <item name="tx_text">@color/tx_text</item>
+        <item name="tx_text_2">@color/tx_text_2</item>
+        <item name="tx_accent">@color/tx_accent</item>
+        <item name="tx_green">@color/tx_green</item>
+        <item name="tx_orange">@color/tx_orange</item>
+        <item name="tx_red">@color/tx_red</item>
+        <item name="android:windowBackground">?attr/tx_bg</item>
+        <item name="android:statusBarColor">?attr/tx_bg</item>
+        <item name="android:navigationBarColor">?attr/tx_bg</item>
+        <item name="android:textColorPrimary">?attr/tx_text</item>
+        <item name="android:textColorSecondary">?attr/tx_text_2</item>
+        <item name="colorAccent">?attr/tx_accent</item>
         <item name="buttonBarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
+    </style>
+
+
+    <style name="Theme.TermuxRedesign.Amoled" parent="Theme.TermuxRedesign">
+        <item name="tx_bg">@color/amoled_bg</item>
+        <item name="tx_surface">@color/amoled_surface</item>
+        <item name="tx_surface_2">@color/amoled_surface_2</item>
+        <item name="tx_stroke">@color/amoled_stroke</item>
+    </style>
+
+    <style name="Theme.TermuxActivity.Amoled" parent="Theme.TermuxActivity.DayNight.NoActionBar">
+        <item name="tt_bar">@color/amoled_tt_bar</item>
+        <item name="tt_key">@color/amoled_tt_key</item>
+        <item name="tt_surface">@color/amoled_tt_surface</item>
+        <item name="tt_stroke">@color/amoled_tt_stroke</item>
+        <item name="extraKeysButtonBackgroundColor">@color/amoled_tt_key</item>
     </style>
 
 </resources>

@@ -36,5 +36,5 @@
         android:contentDescription="Close session"
         android:padding="8dp"
         android:src="@drawable/ic_close"
-        android:tint="@color/tt_text_2" />
+        android:tint="?attr/tt_text_2" />
 </LinearLayout>

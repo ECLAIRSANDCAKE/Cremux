@@ -29,6 +29,7 @@ import com.termux.app.ui.FileManagerActivity;
 import com.termux.app.ui.PackageManagerActivity;
 import com.termux.app.ui.RedesignActivity;
 import com.termux.app.ui.TermuxPropertiesEditor;
+import com.termux.app.ui.UiColors;
 import com.termux.app.ui.UiPrefs;
 import com.termux.shared.termux.settings.preferences.TermuxAppSharedPreferences;
 import com.termux.shared.termux.theme.TermuxThemeUtils;
@@ -194,7 +195,7 @@ public class SettingsActivity extends RedesignActivity {
         LinearLayout card = (LinearLayout) g.card;
         if (!g.rows.isEmpty()) {
             View divider = new View(this);
-            divider.setBackgroundResource(R.color.tx_stroke);
+            divider.setBackgroundColor(UiColors.attr(this, R.attr.tx_stroke));
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
             lp.setMarginStart(dp(54));
             card.addView(divider, lp);
@@ -222,6 +223,7 @@ public class SettingsActivity extends RedesignActivity {
     }
 
     private String themeLabel() {
+        if (UiPrefs.isAmoled(this)) return "AMOLED Black";
         String mode = NightMode.getAppNightMode().getName();
         if ("true".equals(mode)) return "Dark";
         if ("false".equals(mode)) return "Light";
@@ -229,13 +231,14 @@ public class SettingsActivity extends RedesignActivity {
     }
 
     private void chooseTheme() {
-        final String[] labels = {"System", "Dark", "Light"};
-        final String[] values = {"system", "true", "false"};
+        final String[] labels = {"System", "Light", "Dark", "AMOLED Black"};
+        final String[] values = {"system", "false", "true", "true"};
         UiPrefs.show(this, new AlertDialog.Builder(this).setTitle("Theme").setItems(labels, (d, which) -> {
             if (TermuxPropertiesEditor.set("night-mode", values[which])) {
                 TermuxThemeUtils.setAppNightMode(values[which]);
-                AppCompatActivityUtils.setNightMode(this, NightMode.getAppNightMode().getName(), true);
+                UiPrefs.setBoolean(this, UiPrefs.KEY_AMOLED, which == 3);
                 if (mThemeValue != null) mThemeValue.setText(labels[which]);
+                recreate();
             } else {
                 Toast.makeText(this, "Could not write termux.properties", Toast.LENGTH_SHORT).show();
             }

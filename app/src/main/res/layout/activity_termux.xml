@@ -4,7 +4,7 @@
     android:id="@+id/activity_termux_root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/tt_bg"
+    android:background="?attr/tt_bg"
     android:orientation="vertical"
     android:fitsSystemWindows="true">
 
@@ -13,7 +13,7 @@
         android:id="@+id/terminal_top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/tt_bg"
+        android:background="?attr/tt_bg"
         android:orientation="vertical">
 
         <LinearLayout
@@ -34,7 +34,7 @@
                 android:focusable="true"
                 android:gravity="center_vertical"
                 android:text="Terminal"
-                android:textColor="@color/tt_text"
+                android:textColor="?attr/tt_text"
                 android:textSize="22sp" />
 
             <View
@@ -178,7 +178,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/tt_bar"
+            android:background="?attr/tt_bar"
             android:orientation="vertical">
 
             <!-- Command input pill -->
@@ -205,7 +205,7 @@
                         android:layout_height="20dp"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_prompt"
-                        android:tint="@color/tt_text_2" />
+                        android:tint="?attr/tt_text_2" />
 
                     <EditText
                         android:id="@+id/terminal_toolbar_text_input"
@@ -221,9 +221,9 @@
                         android:maxLines="1"
                         android:paddingTop="0dp"
                         android:paddingBottom="0dp"
-                        android:textColor="@color/tt_text"
-                        android:textColorHighlight="@color/tt_stroke"
-                        android:textColorHint="@color/tt_text_2"
+                        android:textColor="?attr/tt_text"
+                        android:textColorHighlight="?attr/tt_stroke"
+                        android:textColorHint="?attr/tt_text_2"
                         android:textSize="15sp"
                         tools:ignore="LabelFor" />
 
@@ -242,7 +242,7 @@
                 android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="37.5dp"
-                android:background="@color/tt_bar" />
+                android:background="?attr/tt_bar" />
         </LinearLayout>
 
     </RelativeLayout>

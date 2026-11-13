@@ -103,6 +103,14 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
+            android:name=".app.ui.GitHubSyncActivity"
+            android:exported="false"
+            android:label="GitHub Sync"
+            android:parentActivityName=".app.ui.DashboardActivity"
+            android:theme="@style/Theme.TermuxRedesign"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
             android:name=".app.ui.FileManagerActivity"
             android:exported="false"
             android:label="File Manager"

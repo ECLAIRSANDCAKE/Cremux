@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/tx_bg"
+    android:background="?attr/tx_bg"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -44,7 +44,7 @@
         android:gravity="center"
         android:padding="24dp"
         android:text="This folder is empty"
-        android:textColor="@color/tx_text_2"
+        android:textColor="?attr/tx_text_2"
         android:visibility="gone" />
 
     <LinearLayout
@@ -68,13 +68,13 @@
                 android:layout_height="24dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_plus"
-                android:tint="@color/tx_text" />
+                android:tint="?attr/tx_text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New"
-                android:textColor="@color/tx_text"
+                android:textColor="?attr/tx_text"
                 android:textSize="11sp" />
         </LinearLayout>
 
@@ -92,14 +92,14 @@
                 android:layout_height="24dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_clipboard"
-                android:tint="@color/tx_text" />
+                android:tint="?attr/tx_text" />
 
             <TextView
                 android:id="@+id/act_paste_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Paste"
-                android:textColor="@color/tx_text"
+                android:textColor="?attr/tx_text"
                 android:textSize="11sp" />
         </LinearLayout>
 
@@ -117,14 +117,14 @@
                 android:layout_height="24dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_select"
-                android:tint="@color/tx_text" />
+                android:tint="?attr/tx_text" />
 
             <TextView
                 android:id="@+id/act_select_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Select"
-                android:textColor="@color/tx_text"
+                android:textColor="?attr/tx_text"
                 android:textSize="11sp" />
         </LinearLayout>
 
@@ -142,13 +142,13 @@
                 android:layout_height="24dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_more_vert"
-                android:tint="@color/tx_text" />
+                android:tint="?attr/tx_text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="More"
-                android:textColor="@color/tx_text"
+                android:textColor="?attr/tx_text"
                 android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/tx_bg"
+    android:background="?attr/tx_bg"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -37,7 +37,7 @@
                         android:layout_height="34dp"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_prompt"
-                        android:tint="@color/tx_text" />
+                        android:tint="?attr/tx_text" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Crémux"
-                        android:textColor="@color/tx_text"
+                        android:textColor="?attr/tx_text"
                         android:textSize="28sp"
                         android:textStyle="bold" />
 
@@ -59,7 +59,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Linux on Android"
-                        android:textColor="@color/tx_text_2"
+                        android:textColor="?attr/tx_text_2"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -70,7 +70,7 @@
                     android:background="@drawable/ripple_round"
                     android:contentDescription="Search"
                     android:src="@drawable/ic_search"
-                    android:tint="@color/tx_text" />
+                    android:tint="?attr/tx_text" />
 
                 <ImageButton
                     android:id="@+id/btn_settings"
@@ -80,7 +80,7 @@
                     android:background="@drawable/ripple_round"
                     android:contentDescription="Settings"
                     android:src="@drawable/ic_settings"
-                    android:tint="@color/tx_text" />
+                    android:tint="?attr/tx_text" />
             </LinearLayout>
 
             <!-- Status card -->
@@ -114,7 +114,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ready"
-                        android:textColor="@color/tx_text"
+                        android:textColor="?attr/tx_text"
                         android:textSize="17sp"
                         android:textStyle="bold" />
 
@@ -123,7 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Environment is active"
-                        android:textColor="@color/tx_text_2"
+                        android:textColor="?attr/tx_text_2"
                         android:textSize="13sp" />
                 </LinearLayout>
 
@@ -132,7 +132,7 @@
                     android:layout_height="24dp"
                     android:contentDescription="@null"
                     android:src="@drawable/ic_chevron_right"
-                    android:tint="@color/tx_text" />
+                    android:tint="?attr/tx_text" />
             </LinearLayout>
 
             <!-- Quick actions -->
@@ -148,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Quick Actions"
-                    android:textColor="@color/tx_text"
+                    android:textColor="?attr/tx_text"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -159,7 +159,7 @@
                     android:background="@drawable/ripple_borderless"
                     android:padding="6dp"
                     android:text="See all  →"
-                    android:textColor="@color/tx_text_2"
+                    android:textColor="?attr/tx_text_2"
                     android:textSize="13sp" />
             </LinearLayout>
 
@@ -187,14 +187,14 @@
                         android:layout_height="26dp"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_bolt"
-                        android:tint="@color/tx_text" />
+                        android:tint="?attr/tx_text" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Update\nPackages"
-                        android:textColor="@color/tx_text"
+                        android:textColor="?attr/tx_text"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -216,14 +216,14 @@
                         android:layout_height="26dp"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_cube"
-                        android:tint="@color/tx_text" />
+                        android:tint="?attr/tx_text" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Install\nPackages"
-                        android:textColor="@color/tx_text"
+                        android:textColor="?attr/tx_text"
                         android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -252,14 +252,14 @@
                         android:layout_height="26dp"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_folder_outline"
-                        android:tint="@color/tx_text" />
+                        android:tint="?attr/tx_text" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Storage\nAccess"
-                        android:textColor="@color/tx_text"
+                        android:textColor="?attr/tx_text"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -281,14 +281,14 @@
                         android:layout_height="26dp"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_tune"
-                        android:tint="@color/tx_text" />
+                        android:tint="?attr/tx_text" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Sessions\nManage"
-                        android:textColor="@color/tx_text"
+                        android:textColor="?attr/tx_text"
                         android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -306,7 +306,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Recent Sessions"
-                    android:textColor="@color/tx_text"
+                    android:textColor="?attr/tx_text"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -317,7 +317,7 @@
                     android:background="@drawable/ripple_borderless"
                     android:padding="6dp"
                     android:text="See all  →"
-                    android:textColor="@color/tx_text_2"
+                    android:textColor="?attr/tx_text_2"
                     android:textSize="13sp" />
             </LinearLayout>
 
@@ -352,13 +352,13 @@
                 android:layout_height="24dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_home_outline"
-                android:tint="@color/tx_text" />
+                android:tint="?attr/tx_text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textColor="@color/tx_text"
+                android:textColor="?attr/tx_text"
                 android:textSize="11sp" />
         </LinearLayout>
 
@@ -376,13 +376,37 @@
                 android:layout_height="24dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_prompt"
-                android:tint="@color/tx_text_2" />
+                android:tint="?attr/tx_text_2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Terminal"
-                android:textColor="@color/tx_text_2"
+                android:textColor="?attr/tx_text_2"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_sync"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_borderless"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_sync"
+                android:tint="?attr/tx_text_2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sync"
+                android:textColor="?attr/tx_text_2"
                 android:textSize="11sp" />
         </LinearLayout>
 
@@ -400,13 +424,13 @@
                 android:layout_height="24dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_folder_outline"
-                android:tint="@color/tx_text_2" />
+                android:tint="?attr/tx_text_2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Files"
-                android:textColor="@color/tx_text_2"
+                android:textColor="?attr/tx_text_2"
                 android:textSize="11sp" />
         </LinearLayout>
 
@@ -424,13 +448,13 @@
                 android:layout_height="24dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_settings"
-                android:tint="@color/tx_text_2" />
+                android:tint="?attr/tx_text_2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Settings"
-                android:textColor="@color/tx_text_2"
+                android:textColor="?attr/tx_text_2"
                 android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>

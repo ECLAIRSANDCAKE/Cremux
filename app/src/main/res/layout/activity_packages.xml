@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/tx_bg"
+    android:background="?attr/tx_bg"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -30,7 +30,7 @@
         android:background="@drawable/bg_search"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="10dp"
-        android:drawableTint="@color/tx_text_2"
+        android:drawableTint="?attr/tx_text_2"
         android:hint="Search packages…"
         android:imeOptions="actionSearch|flagNoExtractUi"
         android:importantForAutofill="no"
@@ -38,8 +38,8 @@
         android:maxLines="1"
         android:paddingStart="14dp"
         android:paddingEnd="14dp"
-        android:textColor="@color/tx_text"
-        android:textColorHint="@color/tx_text_2"
+        android:textColor="?attr/tx_text"
+        android:textColorHint="?attr/tx_text_2"
         android:textSize="15sp" />
 
     <TextView
@@ -49,7 +49,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/tx_text_2"
+        android:textColor="?attr/tx_text_2"
         android:textSize="12sp"
         android:visibility="gone" />
 
@@ -79,7 +79,7 @@
             android:layout_height="26dp"
             android:contentDescription="@null"
             android:src="@drawable/ic_check_circle"
-            android:tint="@color/tx_green" />
+            android:tint="?attr/tx_green" />
 
         <TextView
             android:id="@+id/update_bar_text"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_weight="1"
-            android:textColor="@color/tx_text"
+            android:textColor="?attr/tx_text"
             android:textSize="13sp" />
 
         <TextView
@@ -101,7 +101,7 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:text="Update All"
-            android:textColor="@color/tx_text"
+            android:textColor="?attr/tx_text"
             android:textSize="13sp" />
     </LinearLayout>
 </LinearLayout>

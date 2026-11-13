@@ -20,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -215,7 +214,7 @@ public class FileManagerActivity extends RedesignActivity {
 
         ImageView home = new ImageView(this);
         home.setImageResource(R.drawable.ic_home_outline);
-        home.setColorFilter(ContextCompat.getColor(this, R.color.tx_accent));
+        home.setColorFilter(UiColors.attr(this, R.attr.tx_accent));
         home.setLayoutParams(new android.widget.LinearLayout.LayoutParams(dp(24), dp(24)));
         home.setOnClickListener(v -> goTo(0));
         crumbs.addView(home);
@@ -233,7 +232,7 @@ public class FileManagerActivity extends RedesignActivity {
         tv.setText(text);
         tv.setTextSize(15);
         tv.setPadding(dp(4), dp(6), dp(4), dp(6));
-        tv.setTextColor(ContextCompat.getColor(this, depth < 0 ? R.color.tx_text_2 : R.color.tx_text));
+        tv.setTextColor(UiColors.attr(this, depth < 0 ? R.attr.tx_text_2 : R.attr.tx_text));
         if (depth >= 0) tv.setOnClickListener(v -> goTo(depth));
         return tv;
     }
@@ -249,10 +248,10 @@ public class FileManagerActivity extends RedesignActivity {
         boolean selected = e.file != null && mSelected.contains(e.file);
         if (mSelectionMode && e.file != null) {
             h.icon.setImageResource(selected ? R.drawable.ic_check_circle : R.drawable.ic_select);
-            h.icon.setColorFilter(ContextCompat.getColor(this, selected ? R.color.tx_accent : R.color.tx_text_2));
+            h.icon.setColorFilter(UiColors.attr(this, selected ? R.attr.tx_accent : R.attr.tx_text_2));
         } else {
             h.icon.setImageResource(e.dir ? R.drawable.ic_folder : R.drawable.ic_file);
-            h.icon.setColorFilter(ContextCompat.getColor(this, e.dir ? R.color.tx_accent : R.color.tx_text_2));
+            h.icon.setColorFilter(UiColors.attr(this, e.dir ? R.attr.tx_accent : R.attr.tx_text_2));
         }
         if (e.file == null) {
             h.meta.setVisibility(View.GONE);

@@ -15,6 +15,7 @@ public final class UiPrefs {
 
     private static final String FILE = "redesign_prefs";
     public static final String KEY_BLUR = "ui_blur";
+    public static final String KEY_AMOLED = "ui_amoled";
     public static final String KEY_NOTIFICATIONS = "ui_notifications";
 
     private UiPrefs() { }
@@ -29,6 +30,10 @@ public final class UiPrefs {
 
     public static void setBoolean(Context c, String key, boolean value) {
         prefs(c).edit().putBoolean(key, value).apply();
+    }
+
+    public static boolean isAmoled(Context c) {
+        return getBoolean(c, KEY_AMOLED, false);
     }
 
     /** Show a dialog, applying the blur-behind effect on Android 12+ when enabled. */

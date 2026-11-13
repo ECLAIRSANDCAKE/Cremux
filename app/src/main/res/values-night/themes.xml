@@ -33,7 +33,17 @@
         <!-- Extra keys colors. -->
         <item name="extraKeysButtonTextColor">@color/white</item>
         <item name="extraKeysButtonActiveTextColor">@color/red_400</item>
-        <item name="extraKeysButtonBackgroundColor">@color/tt_bar</item>
+        <item name="extraKeysButtonBackgroundColor">?attr/tt_key</item>
+        <item name="tt_bg">@color/tt_bg</item>
+        <item name="tt_bar">@color/tt_bar</item>
+        <item name="tt_key">@color/tt_key</item>
+        <item name="tt_surface">@color/tt_surface</item>
+        <item name="tt_stroke">@color/tt_stroke</item>
+        <item name="tt_text">@color/tt_text</item>
+        <item name="tt_text_2">@color/tt_text_2</item>
+        <item name="tt_accent">@color/tt_accent</item>
+        <item name="tt_green">@color/tt_green</item>
+        <item name="tt_red">@color/tt_red</item>
         <item name="extraKeysButtonActiveBackgroundColor">@color/grey_500</item>
     </style>
 

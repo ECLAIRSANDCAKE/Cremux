@@ -414,6 +414,13 @@ public final class ExtraKeysView extends GridLayout {
                 button.setAllCaps(mButtonTextAllCaps);
                 button.setPadding(0, 0, 0, 0);
 
+                // Rounded, tonal keys with a small gap between them.
+                final float density = getResources().getDisplayMetrics().density;
+                button.setCornerRadius(Math.round(14 * density));
+                button.setInsetTop(Math.round(3 * density));
+                button.setInsetBottom(Math.round(3 * density));
+                button.setBackgroundColor(mButtonBackgroundColor);
+
                 button.setOnClickListener(view -> {
                     performExtraKeyButtonHapticFeedback(view, buttonInfo, button);
                     onAnyExtraKeyButtonClick(view, buttonInfo, button);
@@ -476,7 +483,8 @@ public final class ExtraKeysView extends GridLayout {
                 } else {
                     param.height = 0;
                 }
-                param.setMargins(0, 0, 0, 0);
+                int gap = Math.round(2 * density);
+                param.setMargins(gap, 0, gap, 0);
                 param.columnSpec = GridLayout.spec(col, GridLayout.FILL, 1.f);
                 param.rowSpec = GridLayout.spec(row, GridLayout.FILL, 1.f);
                 button.setLayoutParams(param);

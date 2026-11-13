@@ -16,3 +16,8 @@ Actions (install, update, run template, ...) are typed into the current terminal
 
 Theme tokens: `res/values/colors.xml` (light) and `res/values-night/colors.xml` (dark), `tx_*`.
 The terminal screen always uses the dark `tt_*` tokens.
+
+## GitHub Sync (Home > Sync)
+Pick a zip/folder, pick or create a repo, push with real `git` inside the Termux environment.
+Token is stored AES-GCM encrypted via Android Keystore (API 23+); sent to git via env (GIT_CONFIG_*), never written to .git/config or logged.
+Needs a classic PAT with `repo` scope. `git` is auto-installed with `pkg install -y git` if missing.

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/tx_bg"
+    android:background="?attr/tx_bg"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -47,12 +47,12 @@
         android:clickable="true"
         android:drawableStart="@drawable/ic_add"
         android:drawablePadding="10dp"
-        android:drawableTint="@color/tx_text"
+        android:drawableTint="?attr/tx_text"
         android:focusable="true"
         android:gravity="center"
         android:paddingStart="110dp"
         android:paddingEnd="110dp"
         android:text="New Template"
-        android:textColor="@color/tx_text"
+        android:textColor="?attr/tx_text"
         android:textSize="15sp" />
 </LinearLayout>

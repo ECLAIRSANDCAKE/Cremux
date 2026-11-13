@@ -30,14 +30,14 @@
             android:layout_height="wrap_content"
             android:ellipsize="middle"
             android:maxLines="1"
-            android:textColor="@color/tx_text"
+            android:textColor="?attr/tx_text"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/file_meta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/tx_text_2"
+            android:textColor="?attr/tx_text_2"
             android:textSize="11sp" />
     </LinearLayout>
 
@@ -47,5 +47,5 @@
         android:layout_height="22dp"
         android:contentDescription="@null"
         android:src="@drawable/ic_chevron_right"
-        android:tint="@color/tx_text_2" />
+        android:tint="?attr/tx_text_2" />
 </LinearLayout>

@@ -31,9 +31,13 @@ public abstract class RedesignActivity extends AppCompatActivity {
     private EditText mSearchInput;
     private QueryListener mQueryListener;
     private String mAppliedNightMode;
+    private boolean mAppliedAmoled;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mAppliedAmoled = UiPrefs.isAmoled(this);
+        if (mAppliedAmoled) setTheme(R.style.Theme_TermuxRedesign_Amoled);
+
         TermuxAppSharedProperties properties = TermuxAppSharedProperties.getProperties();
         if (properties != null) {
             properties.loadTermuxPropertiesFromDisk();
@@ -47,6 +51,10 @@ public abstract class RedesignActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        if (mAppliedAmoled != UiPrefs.isAmoled(this)) {
+            recreate();
+            return;
+        }
         // Pick up a theme change made on another screen (this triggers a recreate).
         String now = NightMode.getAppNightMode().getName();
         if (mAppliedNightMode != null && !now.equals(mAppliedNightMode)) {

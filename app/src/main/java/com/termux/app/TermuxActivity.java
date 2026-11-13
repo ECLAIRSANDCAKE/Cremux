@@ -191,6 +191,8 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
     private boolean mPendingNewSession;
     /** Compact mode that hides the session chips and the command pill. */
     private boolean mFocusMode = false;
+    /** Whether the AMOLED theme overlay was applied when this activity was created. */
+    private boolean mAmoledApplied = false;
 
 
     private static final int CONTEXT_MENU_SELECT_URL_ID = 0;
@@ -227,6 +229,9 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         reloadProperties();
 
         setActivityTheme();
+
+        mAmoledApplied = com.termux.app.ui.UiPrefs.isAmoled(this);
+        if (mAmoledApplied) setTheme(R.style.Theme_TermuxActivity_Amoled);
 
         super.onCreate(savedInstanceState);
 
@@ -322,6 +327,11 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
             addTermuxActivityRootViewGlobalLayoutListener();
 
         registerTermuxActivityBroadcastReceiver();
+
+        if (mAmoledApplied != com.termux.app.ui.UiPrefs.isAmoled(this)) {
+            recreate();
+            return;
+        }
 
         // Settings changed from the redesigned Settings screen are written to termux.properties.
         if (TermuxPropertiesEditor.sDirty && mProperties != null) {

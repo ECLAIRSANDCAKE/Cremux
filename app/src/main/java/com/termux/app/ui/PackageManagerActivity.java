@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -159,7 +158,7 @@ public class PackageManagerActivity extends RedesignActivity {
         h.desc.setText(p.description.isEmpty() ? p.version : p.description);
         Icons.PackageIcon icon = Icons.forPackage(p.name);
         h.icon.setImageResource(icon.resId);
-        h.icon.setColorFilter(ContextCompat.getColor(this, icon.colorRes));
+        h.icon.setColorFilter(UiColors.attr(this, icon.colorRes));
 
         final String label;
         if (p.updatable) label = "Update";

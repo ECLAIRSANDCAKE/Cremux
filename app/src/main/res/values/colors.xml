@@ -15,6 +15,7 @@
     <!-- Terminal screen tokens (always dark). -->
     <color name="tt_bg">#000000</color>
     <color name="tt_bar">#0C0C0E</color>
+    <color name="tt_key">#1F2024</color>
     <color name="tt_surface">#1A1B1F</color>
     <color name="tt_stroke">#2B2C31</color>
     <color name="tt_text">#FFFFFF</color>
@@ -22,4 +23,14 @@
     <color name="tt_accent">#3B82F6</color>
     <color name="tt_green">#34C759</color>
     <color name="tt_red">#FF453A</color>
+
+    <!-- AMOLED palette: pure black surfaces, hairline strokes. -->
+    <color name="amoled_bg">#000000</color>
+    <color name="amoled_surface">#0A0A0B</color>
+    <color name="amoled_surface_2">#141416</color>
+    <color name="amoled_stroke">#222226</color>
+    <color name="amoled_tt_bar">#000000</color>
+    <color name="amoled_tt_key">#121214</color>
+    <color name="amoled_tt_surface">#0C0C0E</color>
+    <color name="amoled_tt_stroke">#222226</color>
 </resources>

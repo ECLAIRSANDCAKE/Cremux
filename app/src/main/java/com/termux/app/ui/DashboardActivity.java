@@ -68,6 +68,7 @@ public class DashboardActivity extends RedesignActivity {
         findViewById(R.id.sessions_see_all).setOnClickListener(v -> showSessionsDialog());
 
         findViewById(R.id.nav_terminal).setOnClickListener(v -> TerminalCommands.openTerminal(this));
+        findViewById(R.id.nav_sync).setOnClickListener(v -> startActivity(new Intent(this, GitHubSyncActivity.class)));
         findViewById(R.id.nav_files).setOnClickListener(v -> startActivity(new Intent(this, FileManagerActivity.class)));
         findViewById(R.id.nav_settings).setOnClickListener(v -> startActivity(new Intent(this, SettingsActivity.class)));
     }

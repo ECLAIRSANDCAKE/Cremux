@@ -26,7 +26,7 @@
             android:id="@+id/pkg_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/tx_text"
+            android:textColor="?attr/tx_text"
             android:textSize="15sp" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@color/tx_text_2"
+            android:textColor="?attr/tx_text_2"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -51,6 +51,6 @@
         android:minWidth="76dp"
         android:paddingStart="14dp"
         android:paddingEnd="14dp"
-        android:textColor="@color/tx_text"
+        android:textColor="?attr/tx_text"
         android:textSize="13sp" />
 </LinearLayout>

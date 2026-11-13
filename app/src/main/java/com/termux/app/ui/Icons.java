@@ -1,6 +1,6 @@
 package com.termux.app.ui;
 
-import androidx.annotation.ColorRes;
+import androidx.annotation.AttrRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 
@@ -11,7 +11,7 @@ public final class Icons {
 
     public static final class PackageIcon {
         @DrawableRes public final int resId;
-        @ColorRes public final int colorRes;
+        @AttrRes public final int colorRes;
         PackageIcon(int resId, int colorRes) { this.resId = resId; this.colorRes = colorRes; }
     }
 
@@ -21,13 +21,13 @@ public final class Icons {
     public static PackageIcon forPackage(@NonNull String name) {
         String n = name.toLowerCase();
         if (n.startsWith("python") || n.equals("nodejs") || n.startsWith("clang") || n.equals("golang") || n.equals("rust"))
-            return new PackageIcon(R.drawable.ic_code, R.color.tx_accent);
-        if (n.startsWith("git")) return new PackageIcon(R.drawable.ic_branch, R.color.tx_orange);
-        if (n.startsWith("docker") || n.startsWith("proot")) return new PackageIcon(R.drawable.ic_container, R.color.tx_accent);
-        if (n.equals("neofetch") || n.equals("htop") || n.equals("btop")) return new PackageIcon(R.drawable.ic_monitor, R.color.tx_text);
-        if (n.equals("vim") || n.equals("nano") || n.startsWith("neovim") || n.equals("emacs")) return new PackageIcon(R.drawable.ic_edit, R.color.tx_green);
-        if (n.equals("curl") || n.equals("wget") || n.startsWith("openssh") || n.equals("nmap")) return new PackageIcon(R.drawable.ic_globe, R.color.tx_text);
-        return new PackageIcon(R.drawable.ic_cube, R.color.tx_text_2);
+            return new PackageIcon(R.drawable.ic_code, R.attr.tx_accent);
+        if (n.startsWith("git")) return new PackageIcon(R.drawable.ic_branch, R.attr.tx_orange);
+        if (n.startsWith("docker") || n.startsWith("proot")) return new PackageIcon(R.drawable.ic_container, R.attr.tx_accent);
+        if (n.equals("neofetch") || n.equals("htop") || n.equals("btop")) return new PackageIcon(R.drawable.ic_monitor, R.attr.tx_text);
+        if (n.equals("vim") || n.equals("nano") || n.startsWith("neovim") || n.equals("emacs")) return new PackageIcon(R.drawable.ic_edit, R.attr.tx_green);
+        if (n.equals("curl") || n.equals("wget") || n.startsWith("openssh") || n.equals("nmap")) return new PackageIcon(R.drawable.ic_globe, R.attr.tx_text);
+        return new PackageIcon(R.drawable.ic_cube, R.attr.tx_text_2);
     }
 
     @DrawableRes

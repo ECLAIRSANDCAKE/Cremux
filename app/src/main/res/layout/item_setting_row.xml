@@ -16,7 +16,7 @@
         android:layout_width="22dp"
         android:layout_height="22dp"
         android:contentDescription="@null"
-        android:tint="@color/tx_text" />
+        android:tint="?attr/tx_text" />
 
     <TextView
         android:id="@+id/row_title"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_weight="1"
-        android:textColor="@color/tx_text"
+        android:textColor="?attr/tx_text"
         android:textSize="15sp" />
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:textColor="@color/tx_text_2"
+        android:textColor="?attr/tx_text_2"
         android:textSize="14sp" />
 
     <androidx.appcompat.widget.SwitchCompat
@@ -49,5 +49,5 @@
         android:layout_marginStart="4dp"
         android:contentDescription="@null"
         android:src="@drawable/ic_chevron_right"
-        android:tint="@color/tx_text_2" />
+        android:tint="?attr/tx_text_2" />
 </LinearLayout>

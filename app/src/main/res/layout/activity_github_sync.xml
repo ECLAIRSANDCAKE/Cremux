@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/tx_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/partial_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="false"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="24dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+            <LinearLayout android:background="@drawable/bg_card" android:orientation="vertical" android:padding="16dp" android:layout_marginBottom="12dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1 · GitHub account" android:textColor="?attr/tx_text" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:id="@+id/tv_account" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Not connected" android:textColor="?attr/tx_text_2" android:textSize="13sp" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"><TextView android:id="@+id/btn_account" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginTop="10dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_btn_primary" android:clickable="true" android:focusable="true" android:gravity="center" android:paddingStart="16dp" android:paddingEnd="16dp" android:text="Connect" android:textColor="#FFFFFF" android:textSize="13sp" /><TextView android:id="@+id/btn_signout" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginTop="10dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_btn_tonal" android:clickable="true" android:focusable="true" android:gravity="center" android:paddingStart="16dp" android:paddingEnd="16dp" android:text="Sign out" android:textColor="?attr/tx_text" android:textSize="13sp" /></LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:background="@drawable/bg_card" android:orientation="vertical" android:padding="16dp" android:layout_marginBottom="12dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2 · Source" android:textColor="?attr/tx_text" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:id="@+id/tv_source" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Nothing picked yet" android:textColor="?attr/tx_text_2" android:textSize="13sp" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"><TextView android:id="@+id/btn_pick_zip" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginTop="10dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_btn_tonal" android:clickable="true" android:focusable="true" android:gravity="center" android:paddingStart="16dp" android:paddingEnd="16dp" android:text="Pick zip" android:textColor="?attr/tx_text" android:textSize="13sp" /><TextView android:id="@+id/btn_pick_folder" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginTop="10dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_btn_tonal" android:clickable="true" android:focusable="true" android:gravity="center" android:paddingStart="16dp" android:paddingEnd="16dp" android:text="Pick folder" android:textColor="?attr/tx_text" android:textSize="13sp" /></LinearLayout>
+                <androidx.appcompat.widget.SwitchCompat android:id="@+id/sw_unwrap" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Unwrap single top folder in zip" android:textColor="?attr/tx_text_2" android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout android:background="@drawable/bg_card" android:orientation="vertical" android:padding="16dp" android:layout_marginBottom="12dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3 · Repository" android:textColor="?attr/tx_text" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:id="@+id/tv_repo" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="No repository chosen" android:textColor="?attr/tx_text_2" android:textSize="13sp" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"><TextView android:id="@+id/btn_repo" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginTop="10dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_btn_tonal" android:clickable="true" android:focusable="true" android:gravity="center" android:paddingStart="16dp" android:paddingEnd="16dp" android:text="Choose or create" android:textColor="?attr/tx_text" android:textSize="13sp" /></LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:background="@drawable/bg_card" android:orientation="vertical" android:padding="16dp" android:layout_marginBottom="12dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4 · What to push" android:textColor="?attr/tx_text" android:textSize="15sp" android:textStyle="bold" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"><TextView android:id="@+id/mode_update" android:layout_width="wrap_content" android:layout_height="36dp" android:layout_marginTop="10dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_chip" android:clickable="true" android:focusable="true" android:gravity="center" android:paddingStart="16dp" android:paddingEnd="16dp" android:text="Update existing" android:textColor="@color/chip_text" android:textSize="13sp" /><TextView android:id="@+id/mode_fresh" android:layout_width="wrap_content" android:layout_height="36dp" android:layout_marginTop="10dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_chip" android:clickable="true" android:focusable="true" android:gravity="center" android:paddingStart="16dp" android:paddingEnd="16dp" android:text="Fresh files" android:textColor="@color/chip_text" android:textSize="13sp" /></LinearLayout>
+                <TextView android:id="@+id/tv_mode_hint" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Adds/overwrites files on top of what is already in the repo." android:textColor="?attr/tx_text_2" android:textSize="13sp" />
+                <androidx.appcompat.widget.SwitchCompat android:id="@+id/sw_mirror" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Also delete repo files missing from source" android:textColor="?attr/tx_text_2" android:textSize="13sp" />
+                <EditText android:id="@+id/et_message" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="10dp" android:background="@drawable/bg_search" android:hint="Commit message" android:text="Update from Crémux" android:importantForAutofill="no" android:imeOptions="flagNoExtractUi" android:inputType="text" android:maxLines="1" android:paddingStart="14dp" android:paddingEnd="14dp" android:textColor="?attr/tx_text" android:textColorHint="?attr/tx_text_2" android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView android:id="@+id/btn_push" android:layout_width="match_parent" android:layout_height="52dp" android:background="@drawable/bg_btn_primary" android:clickable="true" android:focusable="true" android:gravity="center" android:text="Push to GitHub" android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold" />
+
+            <LinearLayout android:id="@+id/log_card" android:visibility="gone" android:layout_marginTop="16dp" android:background="@drawable/bg_card" android:orientation="vertical" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Progress" android:textColor="?attr/tx_text" android:textSize="15sp" android:textStyle="bold" />
+                <ProgressBar android:id="@+id/progress" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:indeterminate="true" />
+                <TextView android:id="@+id/tv_log" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:fontFamily="monospace" android:textColor="?attr/tx_text_2" android:textIsSelectable="true" android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

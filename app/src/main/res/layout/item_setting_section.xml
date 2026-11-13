@@ -5,6 +5,6 @@
     android:paddingStart="6dp"
     android:paddingTop="18dp"
     android:paddingBottom="8dp"
-    android:textColor="@color/tx_text_2"
+    android:textColor="?attr/tx_text_2"
     android:textSize="13sp"
     android:textStyle="bold" />

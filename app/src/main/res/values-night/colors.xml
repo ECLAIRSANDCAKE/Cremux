@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="tx_bg">#000000</color>
-    <color name="tx_surface">#16171A</color>
-    <color name="tx_surface_2">#202125</color>
-    <color name="tx_stroke">#2A2B30</color>
+    <color name="tx_bg">#0E0F11</color>
+    <color name="tx_surface">#1A1B1F</color>
+    <color name="tx_surface_2">#232429</color>
+    <color name="tx_stroke">#2E2F35</color>
     <color name="tx_text">#FFFFFF</color>
     <color name="tx_text_2">#9B9CA3</color>
     <color name="tx_accent">#3B82F6</color>
